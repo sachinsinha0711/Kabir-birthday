@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 7th Birthday Kabir</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;text-align:center;background:linear-gradient(135deg,#e53935,#1565c0);color:white}
+.page{display:none;min-height:100vh;padding:30px}.active{display:block}
+.hero-image,.gallery img{max-width:300px;border-radius:20px;box-shadow:0 0 20px #fff}
+button{padding:15px 30px;border:none;border-radius:30px;background:gold;font-size:20px;cursor:pointer}
+.balloon{font-size:90px;cursor:pointer;margin:15px;display:inline-block}
+.gallery{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+input{padding:12px;font-size:18px;border-radius:10px}
+</style>
+</head>
+<body>
+<div id="home" class="page active">
+<h1>🎂 Happy 7th Birthday Kabir 🎂</h1>
+<img src="kabir3.jpg" class="hero-image">
+<p>Hope you have a blast today! You are now 7 years old and getting more amazing every year. Have fun, enjoy your cake and make awesome memories!</p>
+<button onclick="showPage('balloons')">🎁 Surprise</button>
+</div>
+<div id="balloons" class="page">
+<h1>🕷️ Spider-Man Balloon Challenge</h1>
+<h2 id="instruction">Pop Balloon 1</h2>
+<div><span class="balloon" id="b1" onclick="popBalloon(1)">🎈</span><span class="balloon" id="b2" onclick="popBalloon(2)">🎈</span><span class="balloon" id="b3" onclick="popBalloon(3)">🎈</span><span class="balloon" id="b4" onclick="popBalloon(4)">🎈</span></div>
+</div>
+<div id="passwordPage" class="page">
+<h1>🔐 Final Surprise</h1>
+<p>Hint: Your birthday and month (DDMM)</p>
+<input type="password" id="password" placeholder="Enter Password"><br><br>
+<button onclick="checkPassword()">Unlock</button>
+</div>
+<div id="finalPage" class="page">
+<h1>❤️ We Love You Kabir ❤️</h1>
+<p>Happy 7th Birthday Superstar! Keep smiling, keep learning and keep being awesome. We love you very much!</p>
+<div class="gallery">
+<img src="kabir1.jpg"><img src="kabir2.jpg"><img src="kabir3.jpg">
+</div>
+</div>
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');}
+let current=1;
+function popBalloon(n){if(n!==current){alert('Pop Balloon '+current+' first!');return;}document.getElementById('b'+n).innerHTML='💥';if(n===1)instruction.innerHTML='Great job! Pop Balloon 2';if(n===2)instruction.innerHTML='Keep going! Pop Balloon 3 - Sad Kabir 😄';if(n===3)instruction.innerHTML='Are you tired? Let Elli have a chance. Pop Balloon 4';if(n===4){alert('Now enter the secret password!');showPage('passwordPage');return;}current++;}
+function checkPassword(){if(document.getElementById('password').value==='1909'){showPage('finalPage');}else{alert('Wrong password!');}}
+</script>
+</body></html>
